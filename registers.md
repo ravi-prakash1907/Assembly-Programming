@@ -8,7 +8,7 @@
 >    * Pointer Registers
 >    * Index Registers
 >
-> Control Registers
+> Control Registers \
 > Segment Registers
 >
 > *There are TEN 32-bit and SIX 16-bit Processor Registers*
