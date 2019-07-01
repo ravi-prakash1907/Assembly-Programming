@@ -65,6 +65,7 @@ c. **Read**:
 d. **Execution**:
     _Finally the fetched instruction is executed_
 
+<hr />
 
 ##### A directly downloadable zipped file is also given which is exactly same as that you need to create in the Practical classes. So you can simpally extract it and use it as a helping module.
 ##### The complete set-up is also provided in the same.
