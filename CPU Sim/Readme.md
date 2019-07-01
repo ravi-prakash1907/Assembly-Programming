@@ -62,6 +62,7 @@ b. **Decode**:
 c. **Read**:
     _The effective i.e. actual address is extracted from the memory_
     _It's an instruction that has an Indirect address_
+
 d. **Execution**:
     _Finally the fetched instruction is executed_
 
