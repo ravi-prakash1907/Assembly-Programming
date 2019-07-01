@@ -1,5 +1,8 @@
 This directory Holds the paracticals and information as per the Computer System Architecture (CSA) as in the B.Sc. (H) Computer Science
 
+## The Header:
+  { **[OP-Code][---ADDR---]** }
+
   OP-Code: It's operation code of the instruction which is of 4-bits usually
   ADDR: It's the address field where the actual data is stored & has a size of 12-bits
 
