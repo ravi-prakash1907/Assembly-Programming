@@ -8,44 +8,44 @@ This directory Holds the paracticals and information as per the Computer System 
 ```
 
 1. AC
-  > Accumulator Counter
-  > 16-bits
-  > Mainly used for final computation
+   Accumulator Counter
+   16-bits
+   Mainly used for final computation
 
 2. PC
-  > Program Counter
-  > 12-bits
-  > Used to store of next step i.e. to be executed
+   Program Counter
+   12-bits
+   Used to store of next step i.e. to be executed
 
 3. IR
-  > Information Register
-  > 16-bits
-  > Keeps **entire** data instructions
+   Information Register
+   16-bits
+   Keeps **entire** data instructions
 
 4. DR
-  > Data Register
-  > 16-bits
-  > It stores actual data (_eg. y = 10_)
+   Data Register
+   16-bits
+   It stores actual data (_eg. y = 10_)
 
 5. AR
-  > Address Register
-  > 12-bits
-  > The address is stored here
+   Address Register
+   12-bits
+   The address is stored here
 
 6. I
-  > Index
-  > 1-bit
-  > Stores the **index** of value/data
+   Index
+   1-bit
+   Stores the **index** of value/data
 
 7. S
-  > Switch i.e. flip-flop
-  > 1-bit
-  > Stores instruction about Start/Stop flip-flop
+   Switch i.e. flip-flop
+   1-bit
+   Stores instruction about Start/Stop flip-flop
 
 8. E
-  > Extra
-  > 1-bit
-  > It stores the carry-bit (_eg. while adding 1+1, E will store '1'_)
+   Extra
+   1-bit
+   It stores the carry-bit (_eg. while adding 1+1, E will store '1'_)
 
 ```
 
