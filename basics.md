@@ -31,7 +31,17 @@ _Here any kind of data is stored_
 
 
 ### Control Registers
-_Yet to be updated_
+_These are used for controlling and are mainly termed as Flags_
+
+1. OF
+2. DF
+3. IF
+4. TF
+5. SF
+6. ZF
+7. AF
+8. PF
+9. CF
 
 
 
@@ -46,24 +56,50 @@ _These are generally pointers._
 
 <hr />
 
+Assembly language is NOT case sensitive
 ## Declaration
 
 #### Data Types:
 
-1. DB (Define Byte)
-2. DW (Define Word)
-3. DD (Define DoubleWord)
-4. DQ (Define QuadWord)
-**Here Byte/Word etc referred to the size allocated**
+1. _DB (Define Byte)_
+2. _DW (Define Word)_
+3. _DD (Define DoubleWord)_
+4. _DQ (Define QuadWord)_
 
-**Syntax**
+*Here Byte/Word etc referred to the size allocated*
+
+**Syntax for Variables**
 ```
 Var_Name    Type     Value
 
-A           DB        10          // DB = Data Byte
+A           DB        10              // DB = Data Byte
 Message     DB        'Hello!'
-Var         DW        1122H       // DW = Data Word, so that larger (hex) value can be stored
-Str         DB        "Hi",'$'    // '$' just works as string end (kinda \0)
+Var         DW        1122H           // DW = Data Word, so that larger (hex) value can be stored
+Str         DB        "Hi",'$'        // '$' just works as string end (kinda \0)
 StrTemp     DB        10,13,"Hi",'$'  // in 8086, 10,13 act for carriage return or kinda \n
 
+```
+
+#### Arrays
+
+**Syntax**
+```
+a     DB    1h,2h,3Fh,7Fh     // its an array of hex values i.e. a = [1, 2, 3F, 7F] in hex(h)
+
+b     DW     1111h,2222h,3333h
+```
+
+#### Duplicating data element(s)
+
+**Syntax**
+
+Keyword used for same is DUP and it's mainly used in the array
+```
+Var_Name      Type      <n: no_of_duplicacies> DUP(Data_to_be_Duplicated)
+
+
+x   db    3 DUP(5)        // x  db  5,5,5
+y   db    2 DUP(3,2)      // y  db  3,2,3,2
+
+arr   DW     10 dup(?)    // An empty array with 10 initial val '0'
 ```
