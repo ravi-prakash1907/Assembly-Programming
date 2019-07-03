@@ -30,3 +30,15 @@ MOV     AX,  [BX]         //  REG, MEM
 MOV     [BX+SI],  10      //  MEM, IMMIDIATE
 MOV     AX,  5            //  REG, IMMIDIATE
 ```
+
+### ADD, SUB, INC, DEC
+**Examples for THESE 4**
+```
+ADD/SUB   REG,  REG
+
+
+ADD     AX,  BX       //  Adds REG, REG
+SUB     AX,  BX       //  SUBTRACTS REG, REG
+INC     DI            //  INCREMENTS VALUE BY 1
+DEC     DI            //  DECREASES VALUE BY 1
+```
