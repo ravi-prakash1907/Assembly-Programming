@@ -31,7 +31,7 @@ _Here any kind of data is stored_
 
 
 ### Control Registers
-
+_Yet to be updated_
 
 
 
@@ -46,10 +46,22 @@ _These are generally pointers._
 
 <hr />
 
-Data Types:
+## Data Types:
 
 1. DB (Define Byte)
 2. DW (Define Word)
 3. DD (Define DoubleWord)
 4. DQ (Define QuadWord)
 **Here Byte/Word etc referred to the size allocated**
+
+**Declaration Syntax**
+```
+Var_Name    Type     Value
+
+A           DB        10          // DB = Data Byte
+Message     DB        'Hello!'
+Var         DW        1122H       // DW = Data Word, so that larger (hex) value can be stored
+Str         DB        "Hi",'$'    // '$' just works as string end (kinda \0)
+StrTemp     DB        10,13,"Hi",'$'  // in 8086, 10,13 act for carriage return or kinda \n
+
+```
