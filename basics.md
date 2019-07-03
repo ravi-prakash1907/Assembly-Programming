@@ -18,12 +18,21 @@ Registers are a type of computer memory used to quickly accept, store, and trans
 ### General Purpose Registers
 _Here any kind of data is stored_
 
-16-bit Registers
+32-bit Register
+1. EAX
+2. EBX
+3. ECX
+4. EDX
+
+Above 4 registers' _lower 16-bits_ are further splitted into following Registers i.e.:
 
 1. **AX:** Accumulator Register (Devided into AH/AL i.e. 8-bit each)
 2. **BX:** Base Address Register (Devided into BH/BL i.e. 8-bit each)
 3. **CX:** Count Register (Devided into CH/CL i.e. 8-bit each)
 4. **DX:** Data Register (Devided into DH/DL i.e. 8-bit each)
+
+Some other indexing registers:
+
 5. **SI:** Source Index Register
 6. **DI:** Destination Index Register
 7. **BP:** Base Pointer
