@@ -46,7 +46,9 @@ _These are generally pointers._
 
 <hr />
 
-## Data Types:
+## Declaration
+
+#### Data Types:
 
 1. DB (Define Byte)
 2. DW (Define Word)
@@ -54,7 +56,7 @@ _These are generally pointers._
 4. DQ (Define QuadWord)
 **Here Byte/Word etc referred to the size allocated**
 
-**Declaration Syntax**
+**Syntax**
 ```
 Var_Name    Type     Value
 
