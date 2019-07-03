@@ -1,4 +1,4 @@
-## Categorization of Registers
+# Categorization of Registers
 Registers are a type of computer memory used to quickly accept, store, and transfer data and instructions that are being used immediately by the CPU
 
 ### Processor Registers (3)

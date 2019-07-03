@@ -1,4 +1,4 @@
-## Few basic Commonds and there Syntax
+# Few basic Commonds and there Syntax
 
 ### DUP
 _Covered in the basics.md_
