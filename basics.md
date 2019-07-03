@@ -80,18 +80,14 @@ StrTemp     DB        10,13,"Hi",'$'  // in 8086, 10,13 act for carriage return 
 
 ```
 
-#### Arrays
-
-**Syntax**
+**Syntax for Arrays**
 ```
 a     DB    1h,2h,3Fh,7Fh     // its an array of hex values i.e. a = [1, 2, 3F, 7F] in hex(h)
 
 b     DW     1111h,2222h,3333h
 ```
 
-#### Duplicating data element(s)
-
-**Syntax**
+**Syntax for Duplicating data element(s)**
 
 Keyword used for same is DUP and it's mainly used in the array
 ```
