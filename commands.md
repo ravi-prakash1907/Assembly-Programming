@@ -42,3 +42,16 @@ SUB     AX,  BX       //  SUBTRACTS REG, REG
 INC     DI            //  INCREMENTS VALUE BY 1
 DEC     DI            //  DECREASES VALUE BY 1
 ```
+
+# Interrupts (INT)
+_Here we'll deal with S/W Interrupts_
+
+ **_27 Different interrupts are reserved for the DOS operations_**
+ We can use/assign 224 interrupts out of 256
+```
+INT   VALUE  //  Here VALUE varries b/w 0 to 255 (0H to 0ffH)_
+
+
+INT   10H
+INT   21H
+```
