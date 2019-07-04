@@ -17,7 +17,7 @@ _start:	            ;tells linker entry point
 ; DATA segment is used to declare the CONSTANTS
 
 section	.data
-  msg db 'Hello, world!', 0xa  ;string to be printed
+  msg db 'Hello, world!', 0xa  ;string to be printed 0xa puts a new line
   len equ $ - msg     ;length of the string
 
 ; there is another section i.e. BSS where variables are declared
