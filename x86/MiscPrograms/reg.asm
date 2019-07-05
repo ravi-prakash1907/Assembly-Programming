@@ -30,7 +30,7 @@ _start:
   int 0x80
 
 section .data
-  msg db 'Hello World'
+  msg db 'Hello World'    ; here msg is nothing but just points a memory location
   len equ $ - msg         ; gets the length of the message
 
   s2 times 2 db '!'   ; adds 2 '!' at the end of the msg
