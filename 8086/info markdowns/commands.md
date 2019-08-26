@@ -1,0 +1,1 @@
+# Few important Registers & Segments
