@@ -1,4 +1,4 @@
-;	ASCII to BCD
+;	ASCII to Packed BCD
 
 .model small
 
