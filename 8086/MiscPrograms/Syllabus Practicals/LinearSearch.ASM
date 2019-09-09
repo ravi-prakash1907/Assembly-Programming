@@ -1,5 +1,22 @@
 ;LINEAR SEARCH
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;   MACRO -> to print data
+    print macro prompt
+      mov ah, 09h
+      mov dx, offset prompt
+      int 21h
+    endm
+
+;   MACRO -> to get data
+    input macro
+      mov ah, 01h
+      int 21h
+    endm
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 .model small
 
 .stack 1000h
@@ -23,14 +40,10 @@ start:
   mov si, 0
 
   ;take size of array
-  mov ah, 09h
-  mov dx, offset msg1
-  int 21h
+  print msg1
 
     ;input size
-      mov ah, 01h
-      int 21h
-
+      input
       ;decimal conversion
       and al, 0fh
       mov byte ptr[sz], al
@@ -40,14 +53,10 @@ start:
 
   ;take array elements
   getElement:
-    mov ah, 09h
-    mov dx, offset msg2
-    int 21h
+    print msg2
 
     ;input elements
-      mov ah, 01h
-      int 21h
-
+      input
       ;decimal conversion
       and al, 0fh
       mov byte ptr[res+si], al
@@ -57,13 +66,10 @@ start:
     int 21h
 
     ;get element to search
-      mov ah, 09h
-      mov dx, offset msg3
-      int 21h
+      print msg3
 
       ;input search
-        mov ah, 01h
-        int 21h
+        input
         ;decimal conversion
         and al, 0fh
         mov byte ptr[find], al
@@ -86,21 +92,14 @@ start:
           loop here
 
           notFound:
-            mov ah, 09h
-            mov dx, offset error
-            int 21h
+            print error
             jmp last
 
           found:
             cmp byte ptr[pos], 40h
             jae notFound
-            mov ah, 09h
-            mov dx, offset msg4
-            int 21h
-
-            mov ah, 09h
-            mov dx, offset pos
-            int 21h
+            print msg4
+            print pos
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 last:

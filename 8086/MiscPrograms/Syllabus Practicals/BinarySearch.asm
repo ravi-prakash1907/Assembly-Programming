@@ -1,5 +1,22 @@
 ;BINARY SEARCH
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;   MACRO -> to print data
+    cout macro prompt
+      mov ah, 09h
+      mov dx, offset prompt
+      int 21h
+    endm
+
+;   MACRO -> to get data
+    cin macro
+      mov ah, 01h
+      int 21h
+    endm
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 .model small
 
 .stack 1000h
@@ -39,14 +56,10 @@ start:
   mov cx, 0
 
   ;take size of array
-  mov ah, 09h
-  mov dx, offset msg1
-  int 21h
+  cout msg1
 
     ;input size
-      mov ah, 01h
-      int 21h
-
+      cin
       ;decimal conversion
       and al, 0fh
       mov byte ptr[sz], al
@@ -58,14 +71,10 @@ start:
 
   ;take array elements
   getElement:
-    mov ah, 09h
-    mov dx, offset msg2
-    int 21h
+    cout msg2
 
     ;input elements
-      mov ah, 01h
-      int 21h
-
+      cin
       ;decimal conversion
       and al, 0fh
       mov byte ptr[arr+si], al
@@ -75,13 +84,10 @@ start:
     int 21h
 
     ;get element to search
-      mov ah, 09h
-      mov dx, offset msg3
-      int 21h
+      cout msg3
 
       ;input search
-        mov ah, 01h
-        int 21h
+        cin
         ;decimal conversion
         and al, 0fh
         mov byte ptr[num], al
@@ -138,20 +144,14 @@ start:
           inc bl
           mov byte ptr[mid], bl
 
-          mov ah, 09h
-          mov dx, offset msg4
-          int 21h
+          cout msg4
+          cout mid
 
-          mov ah, 09h
-          mov dx, offset mid
-          int 21h
           jmp endSearch
 
 
         notFound:
-          mov ah, 09h
-          mov dx, offset error
-          int 21h
+          cout error
           jmp endSearch
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
