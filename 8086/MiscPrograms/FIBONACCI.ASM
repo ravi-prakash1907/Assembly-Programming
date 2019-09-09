@@ -62,11 +62,12 @@ start:
       mov byte ptr[terms], al
       int 21h
 
-  ;take number of terms
+  ;show terms
     mov ah, 09h
     mov dx, offset msg2
     int 21h
 
+    mov al, byte ptr[terms]
     cmp al, 02h
     jle showLess
 
@@ -115,6 +116,5 @@ start:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 last:
-  int 21h
   .exit 0
 end start
