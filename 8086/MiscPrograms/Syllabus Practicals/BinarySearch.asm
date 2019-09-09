@@ -93,9 +93,9 @@ start:
         mov byte ptr[num], al
         int 21h
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;Searching the element
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        ;Searching the element
+      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
       binSearch:
         call findMid
@@ -146,15 +146,13 @@ start:
 
           cout msg4
           cout mid
-
           jmp endSearch
-
 
         notFound:
           cout error
           jmp endSearch
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 endSearch:
   .exit 0
 end start

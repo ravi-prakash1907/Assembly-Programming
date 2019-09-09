@@ -75,21 +75,21 @@ start:
         mov byte ptr[find], al
         int 21h
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;Searching the element
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+          ;Searching the element
+        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
         mov si, 0
         mov bx, 0
         mov bl, 30H
-        here:
+        linSearch:
           add bl, 01h
           mov byte ptr[pos], bl
           mov al, byte ptr[res+si]
           cmp al, byte ptr[find]
           je found
           inc si
-          loop here
+          loop linSearch
 
           notFound:
             print error
@@ -101,7 +101,7 @@ start:
             print msg4
             print pos
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 last:
   .exit 0
 end start
