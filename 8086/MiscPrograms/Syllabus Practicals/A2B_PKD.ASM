@@ -17,6 +17,7 @@
       mov ax, 0
       mov al, byte ptr[num+si]      ; works from lhs, so 7 goes first
       and al, 0fh
+      mov al, bl
       shl bx, 4
       or bx, ax
       inc si
