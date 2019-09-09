@@ -1,5 +1,11 @@
 ;	Unpacked BCD to ASCII
 
+    cout macro data
+      mov ah, 09h
+      mov dx, offset data
+      int 21h
+    endm
+
 .model small
 
 .stack 1000h
@@ -11,10 +17,12 @@
       ; LITTLE Endian i.e. for:
       ;     num = {9, 8},     AX = AL:[09], AH:[08]
       ;     AX = AH:AL
-      ;     So,   AX = [0908] or in     ASCII   ----->    [3938]
+      ;     So,   AX = [0809] or in     ASCII   ----->    [3839]
 
-    res1 db ?      ;  VALUE STORED '89' i.e. [3839]
-    res2 db ?      ;  VALUE STORED '89' i.e. [3938]   --> correct way
+    res1 db 3 dup('$')      ;  VALUE STORED '98' i.e. [3938]
+    res2 db 3 dup('$')      ;  VALUE STORED '89' i.e. [3839]   --> correct way
+
+    endl db 0ah,'$'
 
 .code
 convert proc stdcall
@@ -26,8 +34,8 @@ convert proc stdcall
     and ax, 00ffh
 
     ;   LITTLE Endian effects
-    mov byte ptr[res1+si], al    ; stores {09, 08} as [3839]
-    mov byte ptr[res2+di], al    ; stores {09, 08} as [3938]   :   LITTLE Endian
+    mov byte ptr[res1+si], al    ; stores {09, 08} as [3938]
+    mov byte ptr[res2+di], al    ; stores {09, 08} as [3839]   :   LITTLE Endian
 
     inc si
     dec di
@@ -49,7 +57,10 @@ convert endp
   mov si, 0
 
   call convert
-  int 21h
-  .exit 0
 
+  cout res1
+  cout endl
+  cout res2
+
+  .exit 0
 end start
