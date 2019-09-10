@@ -1,5 +1,3 @@
-;FLAG
-
 ;32-bit BCD addition and subtraction
 
 .model small
