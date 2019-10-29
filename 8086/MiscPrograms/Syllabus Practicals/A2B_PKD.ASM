@@ -6,7 +6,7 @@
 
 .data
     num db '1234'
-    res dw 0
+    res db 5 dup('$')
 
 .code
 
@@ -15,15 +15,14 @@
 
     here:
       mov ax, 0
+      shl bx, 4
       mov al, byte ptr[num+si]      ; works from lhs, so 7 goes first
       and al, 0fh
-      mov al, bl
-      shl bx, 4
       or bx, ax
       inc si
       loop here
 
-    mov [res], bx
+    mov word ptr[res], bx
     ret
   main endp
 
@@ -35,6 +34,9 @@ start:
   mov cx, 4
   mov si, 0
   call main
+
+  mov ah, 09h
+  mov dx, offset res
   int 21h
   .exit 0
 
