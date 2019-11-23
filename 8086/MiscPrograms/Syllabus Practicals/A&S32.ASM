@@ -13,7 +13,7 @@
   subtraction dq 0
 
   sum db 0ah,'99999999h + 23456789h = $'    ; = BCDF0122
-  diff db 0ah,'99999999h + 23456789h = $'   ; = 76543210
+  diff db 0ah,'99999999h - 23456789h = $'   ; = 76543210
   s db 10 dup('$')
   d db 9 dup('$')
 
