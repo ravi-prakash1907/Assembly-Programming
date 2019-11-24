@@ -6,54 +6,57 @@
 
 .data
 
-  num1	dq 	99999999h  ; first number
-  num2 	dq 	23456789h  ; second number
+  num1	dd 	99999999h  ; first number
+  num2 	dd 	23456789h  ; second number
 
-  addition 	dd 	0
-  subtraction dq 0
+  addition dq 0
+  subtraction dd 0
 
-  sum db 0ah,'99999999h + 23456789h = $'    ; = BCDF0122
-  diff db 0ah,'99999999h - 23456789h = $'   ; = 76543210
+  sum db 0ah,'99999999h + 23456789h = $'    
+  diff db 0ah,'99999999h - 23456789h = $'   
   s db 10 dup('$')
   d db 9 dup('$')
 
 .code
 
 calcSum proc stdcall
-  mov ax, word ptr num1
-  mov bx, word ptr num2
-  add ax, bx                ;   AX = [0122],  C = 1
-  mov word ptr addition, ax
+  xor ax, ax
+  mov si, 0
+  mov cx, 4
+  hereAdd:
+    mov al, byte ptr [num1+si]
+    add al, byte ptr [num2+si]
+    daa
+    mov byte ptr[addition+si], al
 
-  mov ax, word ptr num1+2
-  adc ax, 0                 ;   AX = [999A],  C = 0
-  mov bx, word ptr num2+2
-  add ax, bx                ;   AX = [BCDF],  C = 0
-  mov word ptr addition+2, ax
-  mov ax, 0
-  adc ax, 0
-  mov word ptr addition+4, ax
+    inc si
+    loop hereAdd
+
+    xor al, al
+    adc al, 0
+    daa
+    mov byte ptr[addition+4], al
   ret
 calcSum endp
 
 
 calcDiff proc stdcall
-  mov dl, 0
-  mov ax, word ptr num1
-  mov bx, word ptr num2
-  sub ax, bx                     ;   AX = [3210],  O = 1
-  mov word ptr subtraction, ax
+  xor ax, ax
+  mov si, 0
+  mov cx, 4
+  hereSub:
+    mov al, byte ptr [num1+si]
+    sub al, byte ptr [num2+si]
+    das
+    mov byte ptr[subtraction+si], al
 
-  mov ax, word ptr num1+2
-  mov bx, word ptr num2+2
-  sbb ax, bx                     ;   AX = [7654],  O = 1
-  mov word ptr subtraction+2, ax
-  jnc borrow
+    inc si
+    loop hereSub
 
-  inc dl
-
-  borrow:
-    mov byte ptr subtraction+4, dl
+    xor al, al
+    sbb al, 0
+    das
+    mov byte ptr[subtraction+4], al
   ret
 calcDiff endp
 
@@ -63,10 +66,9 @@ start:
 	mov es, ax
 
   call calcSum
-  int 21h
+  
   call calcDiff
 
 last:
-  int 21h
   .exit 0
 end start
